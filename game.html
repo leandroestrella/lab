@@ -1,0 +1,197 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<title>Roll a glitch united</title>
+		<link rel="author" href="https://plus.google.com/+LeandroEstrellaPlus">
+		<meta name="description" content="first kind of game with glitched background made on unity">
+		<script type='text/javascript' src='https://ssl-webplayer.unity3d.com/download_webplayer-3.x/3.0/uo/jquery.min.js'></script>
+		<script type="text/javascript">
+		<!--
+		var unityObjectUrl = "http://webplayer.unity3d.com/download_webplayer-3.x/3.0/uo/UnityObject2.js";
+		if (document.location.protocol == 'https:')
+			unityObjectUrl = unityObjectUrl.replace("http://", "https://ssl-");
+		document.write('<script type="text\/javascript" src="' + unityObjectUrl + '"><\/script>');
+		-->
+		</script>
+		<script type="text/javascript">
+		<!--
+			var config = {
+				width: 1150, 
+				height: 790,
+				params: { enableDebugging:"0" }
+				
+			};
+			var u = new UnityObject2(config);
+
+			jQuery(function() {
+
+				var $missingScreen = jQuery("#unityPlayer").find(".missing");
+				var $brokenScreen = jQuery("#unityPlayer").find(".broken");
+				$missingScreen.hide();
+				$brokenScreen.hide();
+				
+				u.observeProgress(function (progress) {
+					switch(progress.pluginStatus) {
+						case "broken":
+							$brokenScreen.find("a").click(function (e) {
+								e.stopPropagation();
+								e.preventDefault();
+								u.installPlugin();
+								return false;
+							});
+							$brokenScreen.show();
+						break;
+						case "missing":
+							$missingScreen.find("a").click(function (e) {
+								e.stopPropagation();
+								e.preventDefault();
+								u.installPlugin();
+								return false;
+							});
+							$missingScreen.show();
+						break;
+						case "installed":
+							$missingScreen.remove();
+						break;
+						case "first":
+						break;
+					}
+				});
+				u.initPlugin(jQuery("#unityPlayer")[0], "game.unity3d");
+			});
+		-->
+		</script>
+		<script>
+			function myReload() {
+			    location.reload();
+			}
+		</script>
+		<style type="text/css">
+		<!--
+		body {
+			font-family: Helvetica, Verdana, Arial, sans-serif;
+			background-color: black;
+			color: black;
+			background-image:url('https://farm3.staticflickr.com/2906/14286133328_4f7177edf9_h.jpg');
+			text-align: center;
+			overflow: hidden;
+		}
+		a:link, a:visited {
+			color: #000;
+		}
+		a:active, a:hover {
+			color: #666;
+		}
+		p.header {
+			font-size: small;
+		}
+		p.header span {
+			font-weight: bold;
+		}
+		p.footer {
+			margin-top: 30px;
+			font-size: small;
+		}
+		div.content {
+			margin: auto;
+			width: 1150px;
+		}
+		div.broken,
+		div.missing {
+			margin: auto;
+			position: relative;
+			top: 50%;
+			width: 193px;
+		}
+		div.broken a,
+		div.missing a {
+			height: 63px;
+			position: relative;
+			top: -31px;
+		}
+		div.broken img,
+		div.missing img {
+			border: none;
+		}
+		div.broken {
+			display: none;
+		}
+		div#unityPlayer {
+			cursor: default;
+			height: 790px;
+			width: 1150px;
+			-webkit-box-shadow: 4px 4px 5px 0px rgba(50, 50, 50, 0.85);
+			-moz-box-shadow:    4px 4px 5px 0px rgba(50, 50, 50, 0.85);
+			box-shadow:         4px 4px 5px 0px rgba(50, 50, 50, 0.85);
+		}
+		.reset {
+			background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #eaff00), color-stop(1, #f0bc1f) );
+			background:-moz-linear-gradient( center top, #eaff00 5%, #f0bc1f 100% );
+			filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#eaff00', endColorstr='#f0bc1f');
+			background-color:#eaff00;
+			-webkit-border-top-left-radius:0px;
+			-moz-border-radius-topleft:0px;
+			border-top-left-radius:0px;
+			-webkit-border-top-right-radius:0px;
+			-moz-border-radius-topright:0px;
+			border-top-right-radius:0px;
+			-webkit-border-bottom-right-radius:0px;
+			-moz-border-radius-bottomright:0px;
+			border-bottom-right-radius:0px;
+			-webkit-border-bottom-left-radius:0px;
+			-moz-border-radius-bottomleft:0px;
+			border-bottom-left-radius:0px;
+			text-indent:0px;
+			border:1px solid #ff5100;
+			display:inline-block;
+			color:#ff0d00;
+			font-family:Arial;
+			font-size:30px;
+			font-weight:bold;
+			font-style:normal;
+			height:10px;
+			line-height:10px;
+			width:157px;
+			text-decoration:none;
+			text-align:center;
+		}
+		.reset:hover {
+			background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #f0bc1f), color-stop(1, #eaff00) );
+			background:-moz-linear-gradient( center top, #f0bc1f 5%, #eaff00 100% );
+			filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#f0bc1f', endColorstr='#eaff00');
+			background-color:#f0bc1f;
+		}.reset:active {
+			position:relative;
+			top:1px;
+		}
+		-->
+		</style>
+	</head>
+	<body>
+		<p class="header">
+		<div class="content">
+			<div id="unityPlayer">
+				<div class="missing">
+					<a href="http://unity3d.com/webplayer/" title="Unity Web Player. Install now!">
+						<img alt="Unity Web Player. Install now!" src="http://webplayer.unity3d.com/installation/getunity.png" width="193" height="63" />
+					</a>
+				</div>
+				<div class="broken">
+					<a href="http://unity3d.com/webplayer/" title="Unity Web Player. Install now! Restart your browser after install.">
+						<img alt="Unity Web Player. Install now! Restart your browser after install." src="http://webplayer.unity3d.com/installation/getunityrestart.png" width="193" height="63" />
+					</a>
+				</div>
+			</div>
+		</div>
+		<p class="footer">
+			<div>
+				<a href="#" onclick="myReload()" class="reset">RESET</a>
+				<a href="http://leandroestrella.altervista.org/#portfolio" class="reset">EXIT</a>
+			</div>
+			<div>
+				&laquo; created by <a href="http://cargocollective.com/leandroestrella/" title="Go to Leandro Estrella">Leandro Estrella</a> &raquo;
+			</div>
+		</p>
+	</body>
+</html>

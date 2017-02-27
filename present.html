@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+	  <title>Present by Leandro Estrella [AD]</title>
+	  <meta charset="utf-8">
+	  <meta name="viewport" content="width=device-width, initial-scale=1">
+	  <link rel="author" href="https://plus.google.com/+LeandroEstrellaPlus">
+	  <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
+	  <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
+	  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+	  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+	  <style>
+	  	/* Sizing & Transition */
+		*, *:after, *:before {
+		  -webkit-box-sizing: border-box;
+		  -moz-box-sizing: border-box;
+		  box-sizing: border-box;
+		}
+
+		* {
+		  margin: 0;
+		  padding: 0;
+		  -webkit-transition: all 0.25s ease;
+		  -moz-transition: all 0.25s ease;
+		  -o-transition: all 0.25s ease;
+		  -ms-transition: all 0.25s ease;
+		  transition: all 0.25s ease;
+		}
+
+	  	body {
+	  		font-family: "Montserrat", sans-serif;
+	  		background-color: black;
+	  	}
+
+	    /* Remove the navbar's default margin-bottom and rounded borders */ 
+	    .navbar {
+	      margin-bottom: 0;
+	      border-radius: 0;
+	    }
+	    
+	    /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+	    .row.content {
+	    	height: 693px;
+	    	padding-top: 125px;
+	    }
+	    
+	    /* Set black background color, white text and some padding */
+	    footer {
+	      padding: 15px;
+	    }
+	    
+	    /* On small screens, set height to 'auto' for sidenav and grid */
+	    @media screen and (max-width: 767px) {
+	      .sidenav {
+	        height: auto;
+	        padding: 15px;
+	      }
+	      .row.content {height:auto;} 
+	    }
+
+		/* Signature's div */
+		.signature {
+		  font-family: "Montserrat", sans-serif;
+		  font-weight: bold;
+		  font-size: 12px;
+		  text-align: right;
+		}
+
+		.signature a {
+		  text-decoration: none;
+		  color: #666;
+		}
+
+		/* image transition */
+		.hs-wrapper{
+			width: 450px;
+			height: 450px;
+			position: relative;
+			margin: 0 auto;
+			overflow: hidden;
+		}
+		.hs-wrapper img{
+			top: 0px;
+			left: 0px;
+			position: absolute;
+			-webkit-animation: showMe 0.8s linear infinite 0s forwards;
+			-moz-animation: showMe 0.8s linear infinite 0s forwards;
+			-o-animation: showMe 0.8s linear infinite 0s forwards;
+			-ms-animation: showMe 0.8s linear infinite 0s forwards;
+			animation: showMe 0.8s linear infinite 0s forwards;
+			-webkit-animation-play-state: paused;
+			-moz-animation-play-state: paused;
+			-o-animation-play-state: paused;
+			-ms-animation-play-state: paused;
+			animation-play-state: paused;	
+		}
+		.hs-wrapper img:nth-child(1){
+			z-index: 15;
+		}
+		.hs-wrapper img:nth-child(2){
+		    -webkit-animation-delay: 0.1s;
+			-moz-animation-delay: 0.1s;
+			-o-animation-delay: 0.1s;
+			-ms-animation-delay: 0.1s;
+			animation-delay: 0.1s;
+			z-index: 14;
+		}
+		.hs-wrapper img:nth-child(3){
+		    -webkit-animation-delay: 0.2s;
+			-moz-animation-delay: 0.2s;
+			-o-animation-delay: 0.2s;
+			-ms-animation-delay: 0.2s;
+			animation-delay: 0.2s;
+			z-index: 13;
+		}
+		.hs-wrapper img:nth-child(4){
+		    -webkit-animation-delay: 0.3s;
+			-moz-animation-delay: 0.3s;
+			-o-animation-delay: 0.3s;
+			-ms-animation-delay: 0.3s;
+			animation-delay: 0.3s;
+			z-index: 12;
+		}
+		.hs-wrapper img:nth-child(5){
+		    -webkit-animation-delay: 0.4s;
+			-moz-animation-delay: 0.4s;
+			-o-animation-delay: 0.4s;
+			-ms-animation-delay: 0.4s;
+			animation-delay: 0.4s;
+			z-index: 11;
+		}
+		.hs-wrapper img:nth-child(6){
+		    -webkit-animation-delay: 0.5s;
+			-moz-animation-delay: 0.5s;
+			-o-animation-delay: 0.5s;
+			-ms-animation-delay: 0.5s;
+			animation-delay: 0.5s;
+			z-index: 10;
+		}
+		.hs-wrapper img:nth-child(7){
+		    -webkit-animation-delay: 0.6s;
+			-moz-animation-delay: 0.6s;
+			-o-animation-delay: 0.6s;
+			-ms-nimation-delay: 0.6s;
+			animation-delay: 0.6s;
+			z-index: 9;
+		}
+		.hs-wrapper img:nth-child(8){
+		    -webkit-animation-delay: 0.7s;
+			-moz-animation-delay: 0.7s;
+			-o-animation-delay: 0.7s;
+			-ms-animation-delay: 0.7s;
+			animation-delay: 0.7s;
+			z-index: 8;
+		}
+		.hs-wrapper img:nth-child(9){
+		    -webkit-animation-delay: 0.8s;
+			-moz-animation-delay: 0.8s;
+			-o-animation-delay: 0.8s;
+			-ms-animation-delay: 0.8s;
+			animation-delay: 0.8s;
+			z-index: 7;
+		}
+		.hs-wrapper img:nth-child(10){
+		    -webkit-animation-delay: 0.9s;
+			-moz-animation-delay: 0.9s;
+			-o-animation-delay: 0.9s;
+			-ms-animation-delay: 0.9s;
+			animation-delay: 0.9s;
+			z-index: 6;
+		}
+		.hs-wrapper img:nth-child(11){
+		    -webkit-animation-delay: 0.10s;
+			-moz-animation-delay: 0.10s;
+			-o-animation-delay: 0.10s;
+			-ms-animation-delay: 0.10s;
+			animation-delay: 0.10s;
+			z-index: 5;
+		}
+		.hs-wrapper img:nth-child(12){
+		    -webkit-animation-delay: 0.11s;
+			-moz-animation-delay: 0.11s;
+			-o-animation-delay: 0.11s;
+			-ms-animation-delay: 0.11s;
+			animation-delay: 0.11s;
+			z-index: 4;
+		}
+		.hs-wrapper img:nth-child(13){
+		    -webkit-animation-delay: 0.12s;
+			-moz-animation-delay: 0.12s;
+			-o-animation-delay: 0.12s;
+			-ms-animation-delay: 0.12s;
+			animation-delay: 0.12s;
+			z-index: 3;
+		}
+		.hs-wrapper img:nth-child(14){
+		    -webkit-animation-delay: 0.13s;
+			-moz-animation-delay: 0.13s;
+			-o-animation-delay: 0.13s;
+			-ms-animation-delay: 0.13s;
+			animation-delay: 0.13s;
+			z-index: 2;
+		}
+		.hs-wrapper:hover img{
+			-webkit-animation-play-state: running;
+			-moz-animation-play-state: running;
+			-o-animation-play-state: running;
+			-ms-animation-play-state: running;
+			animation-play-state: running;
+		}
+		.hs-overlay{
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			opacity: 0;
+			z-index: 500;
+			background: rgba(0,0,0,0.6);
+			pointer-events: none;
+			-webkit-transition: all 0.3s linear;
+			-moz-transition: all 0.3s linear;
+			-o-transition: all 0.3s linear;
+			-ms-transition: all 0.3s linear;
+			transition: all 0.3s linear;
+		}
+		.hs-overlay span{
+			display: block;
+			padding: 20px;
+			position: absolute;
+			width: 450px;
+			top: 175px;
+			color: #fff;
+			font-size: 38px;
+			text-align: center;
+			pointer-events: none;
+			-webkit-touch-callout: none;
+			-webkit-user-select: none;
+			-khtml-user-select: none;
+			-moz-user-select: none;
+			-ms-user-select: none;
+			user-select: none;
+		}
+		.hs-wrapper:hover .hs-overlay{
+			opacity: 1;
+		}
+		@-webkit-keyframes showMe {
+		    0% { visibility: visible; z-index: 100; }
+			12.5% { visibility: visible; z-index: 100; }
+			25% { visibility: hidden; z-index: 0; }
+		    100% { visibility: hidden; z-index: 0; }
+		}
+		@-moz-keyframes showMe {
+		    0% { visibility: visible; z-index: 100; }
+			12.5% { visibility: visible; z-index: 100; }
+			25% { visibility: hidden; z-index: 0; }
+		    100% { visibility: hidden; z-index: 0; }
+		}
+		@-o-keyframes showMe {
+		    0% { visibility: visible; z-index: 100; }
+			12.5% { visibility: visible; z-index: 100; }
+			25% { visibility: hidden; z-index: 0; }
+		    100% { visibility: hidden; z-index: 0; }
+		}
+		@-ms-keyframes showMe {
+		    0% { visibility: visible; z-index: 100; }
+			12.5% { visibility: visible; z-index: 100; }
+			25% { visibility: hidden; z-index: 0; }
+		    100% { visibility: hidden; z-index: 0; }
+		}
+		@keyframes showMe {
+		    0% { visibility: visible; z-index: 100; }
+			12.5% { visibility: visible; z-index: 100; }
+			25% { visibility: hidden; z-index: 0; }
+		    100% { visibility: hidden; z-index: 0; }
+		}
+	  </style>
+	</head>
+	<body>
+		<div class="container-fluid">    
+		  <div class="row content">
+		    <div class="col-sm-2"></div>
+		    <div class="col-sm-8">
+		    	<div class="hs-wrapper" style="cursor: not-allowed;">
+					<img src="img/1.png" alt="image01"/>
+					<img src="img/2.png" alt="image02"/>
+					<img src="img/3.png" alt="image03"/>
+					<img src="img/4.png" alt="image04"/>
+					<img src="img/5.png" alt="image05"/>
+					<img src="img/6.png" alt="image06"/>
+					<img src="img/7.png" alt="image07"/>
+					<img src="img/8.png" alt="image08"/>
+					<img src="img/9.png" alt="image09"/>
+					<img src="img/10.png" alt="image10"/>
+					<img src="img/11.png" alt="image11"/>
+					<img src="img/12.png" alt="image12"/>
+					<img src="img/13.png" alt="image13"/>
+					<img src="img/14.png" alt="image14"/>
+					<div class="hs-overlay">
+						<span>Hover&#8652;Ask&#8652;Hover</span>
+					</div>
+				</div>
+		    </div>
+		    <div class="col-sm-2"></div>
+		  </div>
+		</div>
+		<footer class="container-fluid">
+		  <div class="signature">
+		  	<a href="http://cargocollective.com/leandroestrella" target="_blank" style="cursor: help;">About</a>&nbsp;<a href="ad.html">[AD]</a>
+		  </div>
+		</footer>
+	</body>
+</html>

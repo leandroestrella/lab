@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>dada_playGnd</title>
+		<meta charset="utf-8">
+		<link rel="author" href="https://plus.google.com/+LeandroEstrellaPlus">
+		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+		<style>
+			body {
+				margin: 0px;
+                overflow: hidden;
+			}
+            div {
+                background-image: url("img/dada/dada_playGnd.gif");
+                background-color: transparent;
+                background-repeat: no-repeat;
+                background-position: center center;
+            }
+		</style>
+		<script language=javascript>
+			var rev = "fwd";
+			function titlebar(val){
+			    var msg  = "dada_playGnd";
+			    var res = " ";
+			    var speed = 100;
+			    var pos = val;
+			    msg = "   "+msg+"";    
+			    var le = msg.length;
+			    if(rev == "fwd"){ 
+			        if(pos < le){ 
+			            pos = pos+1; 
+			            scroll = msg.substr(0,pos); 
+			            document.title = scroll; 
+			            timer = window.setTimeout("titlebar("+pos+")",speed); 
+			        } else { 
+			            rev = "bwd"; 
+			            timer = window.setTimeout("titlebar("+pos+")",speed); 
+			        }
+			    } else { 
+			        if(pos > 0) {
+			            pos = pos-1; 
+			            var ale = le-pos; 
+			            scrol = msg.substr(ale,le); 
+			            document.title = scrol; 
+			            timer = window.setTimeout("titlebar("+pos+")",speed); 
+			        } else { 
+			            rev = "fwd"; 
+			            timer = window.setTimeout("titlebar("+pos+")",speed); 
+			        }
+			    }
+			}
+			titlebar(0);
+		</script>
+	</head>
+	<body>
+		<script src="js/three.min.js"></script>
+		<script src="js/OBJLoader.js"></script>
+		<script src="js/Detector.js"></script>
+		<script>
+			if ( ! Detector.webgl ) Detector.addGetWebGLMessage();
+
+			var container;
+
+			var camera, scene, renderer;
+			var geometry, material, mesh;
+
+			var mouseX = 0, mouseY = 0;
+
+			var windowHalfX = window.innerWidth / 2;
+			var windowHalfY = window.innerHeight / 2;
+
+			var randomColor = Math.random() * 0xffffff;
+
+			var cameraAngle = 200;
+			var orbitRange = 360;
+			var orbitSpeed = 0.05 * Math.PI/360;
+			var desiredAngle = 90 * Math.PI/90;
+
+			init();
+			animate();
+
+			function init() {
+
+				container = document.createElement( 'div' );
+				document.body.appendChild( container );
+
+				camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 10000 );
+				camera.position.set(orbitRange,0,0);
+
+				// Scene
+
+				scene = new THREE.Scene();
+
+				for ( var i = 0; i < 7.5; i ++ ) {
+					map = THREE.ImageUtils.loadTexture('img/dada/1.png');
+					geometry = new THREE.PlaneGeometry(347, 500, 4, 4);
+					material = new THREE.MeshBasicMaterial({shading: THREE.FlatShading, color: 0xffffff, map: map, transparent: true, opacity: 0.5});
+					mesh1 = new THREE.Mesh(geometry, material);
+					map.wrapS = map.wrapT = THREE.RepeatWrapping;
+					mesh1.scale.x = mesh1.scale.y = mesh1.scale.z = 0.25;
+					mesh1.position.x = Math.random() * 1000 - 500;
+					mesh1.position.y = Math.random() * 1000 - 500;
+					mesh1.position.z = Math.random() * 1000 - 500;
+					mesh1.rotation.x = Math.random() * 2 * Math.PI;
+					mesh1.rotation.y = Math.random() * 2 * Math.PI;
+					mesh1.rotation.z = Math.random() * 2 * Math.PI;
+					scene.add(mesh1);
+					
+					map = THREE.ImageUtils.loadTexture('img/dada/2.png');
+					geometry = new THREE.PlaneGeometry(324, 500, 4, 4);
+					material = new THREE.MeshBasicMaterial({shading: THREE.FlatShading, color: 0xffffff, map: map, transparent: true, opacity: 0.5});
+					mesh2 = new THREE.Mesh(geometry, material);
+					map.wrapS = map.wrapT = THREE.RepeatWrapping;
+					mesh2.scale.x = mesh2.scale.y = mesh2.scale.z = 0.25;
+					mesh2.position.x = Math.random() * 1000 - 500;
+					mesh2.position.y = Math.random() * 1000 - 500;
+					mesh2.position.z = Math.random() * 1000 - 500;
+					mesh2.rotation.x = Math.random() * 2 * Math.PI;
+					mesh2.rotation.y = Math.random() * 2 * Math.PI;
+					mesh2.rotation.z = Math.random() * 2 * Math.PI;
+					scene.add(mesh2);
+					
+					map = THREE.ImageUtils.loadTexture('img/dada/3.png');
+					geometry = new THREE.PlaneGeometry(500, 245, 4, 4);
+					material = new THREE.MeshBasicMaterial({shading: THREE.FlatShading, color: 0xffffff, map: map, transparent: true, opacity: 0.5});
+					mesh3 = new THREE.Mesh(geometry, material);
+					map.wrapS = map.wrapT = THREE.RepeatWrapping;
+					mesh3.scale.x = mesh3.scale.y = mesh3.scale.z = 0.25;
+					mesh3.position.x = Math.random() * 1000 - 500;
+					mesh3.position.y = Math.random() * 1000 - 500;
+					mesh3.position.z = Math.random() * 1000 - 500;
+					mesh3.rotation.x = Math.random() * 2 * Math.PI;
+					mesh3.rotation.y = Math.random() * 2 * Math.PI;
+					mesh3.rotation.z = Math.random() * 2 * Math.PI;
+					scene.add(mesh3);
+					
+					map = THREE.ImageUtils.loadTexture('img/dada/4.png');
+					geometry = new THREE.PlaneGeometry(500, 421, 4, 4);
+					material = new THREE.MeshBasicMaterial({shading: THREE.FlatShading, color: 0xffffff, map: map, transparent: true, opacity: 0.5});
+					mesh4 = new THREE.Mesh(geometry, material);
+					map.wrapS = map.wrapT = THREE.RepeatWrapping;
+					mesh4.scale.x = mesh4.scale.y = mesh4.scale.z = 0.25;
+					mesh4.position.x = Math.random() * 1000 - 500;
+					mesh4.position.y = Math.random() * 1000 - 500;
+					mesh4.position.z = Math.random() * 1000 - 500;
+					mesh4.rotation.x = Math.random() * 2 * Math.PI;
+					mesh4.rotation.y = Math.random() * 2 * Math.PI;
+					mesh4.rotation.z = Math.random() * 2 * Math.PI;
+					scene.add(mesh4);
+					
+					map = THREE.ImageUtils.loadTexture('img/dada/5.png');
+					geometry = new THREE.PlaneGeometry(404, 500, 4, 4);
+					material = new THREE.MeshBasicMaterial({shading: THREE.FlatShading, color: 0xffffff, map: map, transparent: true, opacity: 0.5});
+					mesh5 = new THREE.Mesh(geometry, material);
+					map.wrapS = map.wrapT = THREE.RepeatWrapping;
+					mesh5.scale.x = mesh5.scale.y = mesh5.scale.z = 0.25;
+					mesh5.position.x = Math.random() * 1000 - 500;
+					mesh5.position.y = Math.random() * 1000 - 500;
+					mesh5.position.z = Math.random() * 1000 - 500;
+					mesh5.rotation.x = Math.random() * 2 * Math.PI;
+					mesh5.rotation.y = Math.random() * 2 * Math.PI;
+					mesh5.rotation.z = Math.random() * 2 * Math.PI;
+					scene.add(mesh5);
+					
+					map = THREE.ImageUtils.loadTexture('img/dada/6.png');
+					geometry = new THREE.PlaneGeometry(374, 500, 4, 4);
+					material = new THREE.MeshBasicMaterial({shading: THREE.FlatShading, color: 0xffffff, map: map, transparent: true, opacity: 0.5});
+					mesh6 = new THREE.Mesh(geometry, material);
+					map.wrapS = map.wrapT = THREE.RepeatWrapping;
+					mesh6.scale.x = mesh6.scale.y = mesh6.scale.z = 0.25;
+					mesh6.position.x = Math.random() * 1000 - 500;
+					mesh6.position.y = Math.random() * 1000 - 500;
+					mesh6.position.z = Math.random() * 1000 - 500;
+					mesh6.rotation.x = Math.random() * 2 * Math.PI;
+					mesh6.rotation.y = Math.random() * 2 * Math.PI;
+					mesh6.rotation.z = Math.random() * 2 * Math.PI;
+					scene.add(mesh6);
+					
+					map = THREE.ImageUtils.loadTexture('img/dada/7.png');
+					geometry = new THREE.PlaneGeometry(360, 500, 4, 4);
+					material = new THREE.MeshBasicMaterial({shading: THREE.FlatShading, color: 0xffffff, map: map, transparent: true, opacity: 0.5});
+					mesh7 = new THREE.Mesh(geometry, material);
+					map.wrapS = map.wrapT = THREE.RepeatWrapping;
+					mesh7.scale.x = mesh7.scale.y = mesh7.scale.z = 0.25;
+					mesh7.position.x = Math.random() * 1000 - 500;
+					mesh7.position.y = Math.random() * 1000 - 500;
+					mesh7.position.z = Math.random() * 1000 - 500;
+					mesh7.rotation.x = Math.random() * 2 * Math.PI;
+					mesh7.rotation.y = Math.random() * 2 * Math.PI;
+					mesh7.rotation.z = Math.random() * 2 * Math.PI;
+					scene.add(mesh7);
+					
+					map = THREE.ImageUtils.loadTexture('img/dada/8.png');
+					geometry = new THREE.PlaneGeometry(318, 500, 4, 4);
+					material = new THREE.MeshBasicMaterial({shading: THREE.FlatShading, color: 0xffffff, map: map, transparent: true, opacity: 0.5});
+					mesh8 = new THREE.Mesh(geometry, material);
+					map.wrapS = map.wrapT = THREE.RepeatWrapping;
+					mesh8.scale.x = mesh8.scale.y = mesh8.scale.z = 0.25;
+					mesh8.position.x = Math.random() * 1000 - 500;
+					mesh8.position.y = Math.random() * 1000 - 500;
+					mesh8.position.z = Math.random() * 1000 - 500;
+					mesh8.rotation.x = Math.random() * 2 * Math.PI;
+					mesh8.rotation.y = Math.random() * 2 * Math.PI;
+					mesh8.rotation.z = Math.random() * 2 * Math.PI;
+					scene.add(mesh8);
+					
+					map = THREE.ImageUtils.loadTexture('img/dada/9.png');
+					geometry = new THREE.PlaneGeometry(365, 500, 4, 4);
+					material = new THREE.MeshBasicMaterial({shading: THREE.FlatShading, color: 0xffffff, map: map, transparent: true, opacity: 0.5});
+					mesh9 = new THREE.Mesh(geometry, material);
+					map.wrapS = map.wrapT = THREE.RepeatWrapping;
+					mesh9.scale.x = mesh9.scale.y = mesh9.scale.z = 0.25;
+					mesh9.position.x = Math.random() * 1000 - 500;
+					mesh9.position.y = Math.random() * 1000 - 500;
+					mesh9.position.z = Math.random() * 1000 - 500;
+					mesh9.rotation.x = Math.random() * 2 * Math.PI;
+					mesh9.rotation.y = Math.random() * 2 * Math.PI;
+					mesh9.rotation.z = Math.random() * 2 * Math.PI;
+					scene.add(mesh9);
+					
+					map = THREE.ImageUtils.loadTexture('img/dada/10.png');
+					geometry = new THREE.PlaneGeometry(331, 500, 4, 4);
+					material = new THREE.MeshBasicMaterial({shading: THREE.FlatShading, color: 0xffffff, map: map, transparent: true, opacity: 0.5});
+					mesh10 = new THREE.Mesh(geometry, material);
+					map.wrapS = map.wrapT = THREE.RepeatWrapping;
+					mesh10.scale.x = mesh10.scale.y = mesh10.scale.z = 0.25;
+					mesh10.position.x = Math.random() * 1000 - 500;
+					mesh10.position.y = Math.random() * 1000 - 500;
+					mesh10.position.z = Math.random() * 1000 - 500;
+					mesh10.rotation.x = Math.random() * 2 * Math.PI;
+					mesh10.rotation.y = Math.random() * 2 * Math.PI;
+					mesh10.rotation.z = Math.random() * 2 * Math.PI;
+					scene.add(mesh10);
+					
+					map = THREE.ImageUtils.loadTexture('img/dada/11.png');
+					geometry = new THREE.PlaneGeometry(364, 500, 4, 4);
+					material = new THREE.MeshBasicMaterial({shading: THREE.FlatShading, color: 0xffffff, map: map, transparent: true, opacity: 0.5});
+					mesh11 = new THREE.Mesh(geometry, material);
+					map.wrapS = map.wrapT = THREE.RepeatWrapping;
+					mesh11.scale.x = mesh11.scale.y = mesh11.scale.z = 0.25;
+					mesh11.position.x = Math.random() * 1000 - 500;
+					mesh11.position.y = Math.random() * 1000 - 500;
+					mesh11.position.z = Math.random() * 1000 - 500;
+					mesh11.rotation.x = Math.random() * 2 * Math.PI;
+					mesh11.rotation.y = Math.random() * 2 * Math.PI;
+					mesh1.rotation.z = Math.random() * 2 * Math.PI;
+					scene.add(mesh11);
+					
+					map = THREE.ImageUtils.loadTexture('img/dada/12.png');
+					geometry = new THREE.PlaneGeometry(341, 500, 4, 4);
+					material = new THREE.MeshBasicMaterial({shading: THREE.FlatShading, color: 0xffffff, map: map, transparent: true, opacity: 0.5});
+					mesh12 = new THREE.Mesh(geometry, material);
+					map.wrapS = map.wrapT = THREE.RepeatWrapping;
+					mesh12.scale.x = mesh12.scale.y = mesh12.scale.z = 0.25;
+					mesh12.position.x = Math.random() * 1000 - 500;
+					mesh12.position.y = Math.random() * 1000 - 500;
+					mesh12.position.z = Math.random() * 1000 - 500;
+					mesh12.rotation.x = Math.random() * 2 * Math.PI;
+					mesh12.rotation.y = Math.random() * 2 * Math.PI;
+					mesh12.rotation.z = Math.random() * 2 * Math.PI;
+					scene.add(mesh12);
+					
+					map = THREE.ImageUtils.loadTexture('img/dada/13.png');
+					geometry = new THREE.PlaneGeometry(348, 500, 4, 4);
+					material = new THREE.MeshBasicMaterial({shading: THREE.FlatShading, color: 0xffffff, map: map, transparent: true, opacity: 0.5});
+					mesh13 = new THREE.Mesh(geometry, material);
+					map.wrapS = map.wrapT = THREE.RepeatWrapping;
+					mesh13.scale.x = mesh13.scale.y = mesh13.scale.z = 0.25;
+					mesh13.position.x = Math.random() * 1000 - 500;
+					mesh13.position.y = Math.random() * 1000 - 500;
+					mesh13.position.z = Math.random() * 1000 - 500;
+					mesh13.rotation.x = Math.random() * 2 * Math.PI;
+					mesh13.rotation.y = Math.random() * 2 * Math.PI;
+					mesh13.rotation.z = Math.random() * 2 * Math.PI;
+					scene.add(mesh13);
+					
+					map = THREE.ImageUtils.loadTexture('img/dada/14.png');
+					geometry = new THREE.PlaneGeometry(345, 500, 4, 4);
+					material = new THREE.MeshBasicMaterial({shading: THREE.FlatShading, color: 0xffffff, map: map, transparent: true, opacity: 0.5});
+					mesh14 = new THREE.Mesh(geometry, material);
+					map.wrapS = map.wrapT = THREE.RepeatWrapping;
+					mesh14.scale.x = mesh14.scale.y = mesh14.scale.z = 0.25;
+					mesh14.position.x = Math.random() * 1000 - 500;
+					mesh14.position.y = Math.random() * 1000 - 500;
+					mesh14.position.z = Math.random() * 1000 - 500;
+					mesh14.rotation.x = Math.random() * 2 * Math.PI;
+					mesh14.rotation.y = Math.random() * 2 * Math.PI;
+					mesh14.rotation.z = Math.random() * 2 * Math.PI;
+					scene.add(mesh14);
+					
+					map = THREE.ImageUtils.loadTexture('img/dada/15.png');
+					geometry = new THREE.PlaneGeometry(349, 500, 4, 4);
+					material = new THREE.MeshBasicMaterial({shading: THREE.FlatShading, color: 0xffffff, map: map, transparent: true, opacity: 0.5});
+					mesh15 = new THREE.Mesh(geometry, material);
+					map.wrapS = map.wrapT = THREE.RepeatWrapping;
+					mesh15.scale.x = mesh15.scale.y = mesh15.scale.z = 0.25;
+					mesh15.position.x = Math.random() * 1000 - 500;
+					mesh15.position.y = Math.random() * 1000 - 500;
+					mesh15.position.z = Math.random() * 1000 - 500;
+					mesh15.rotation.x = Math.random() * 2 * Math.PI;
+					mesh15.rotation.y = Math.random() * 2 * Math.PI;
+					mesh15.rotation.z = Math.random() * 2 * Math.PI;
+					scene.add(mesh15);
+					
+					map = THREE.ImageUtils.loadTexture('img/dada/16.png');
+					geometry = new THREE.PlaneGeometry(362, 500, 4, 4);
+					material = new THREE.MeshBasicMaterial({shading: THREE.FlatShading, color: 0xffffff, map: map, transparent: true, opacity: 0.5});
+					mesh16 = new THREE.Mesh(geometry, material);
+					map.wrapS = map.wrapT = THREE.RepeatWrapping;
+					mesh16.scale.x = mesh16.scale.y = mesh16.scale.z = 0.25;
+					mesh16.position.x = Math.random() * 1000 - 500;
+					mesh16.position.y = Math.random() * 1000 - 500;
+					mesh16.position.z = Math.random() * 1000 - 500;
+					mesh16.rotation.x = Math.random() * 2 * Math.PI;
+					mesh16.rotation.y = Math.random() * 2 * Math.PI;
+					mesh16.rotation.z = Math.random() * 2 * Math.PI;
+					scene.add(mesh16);
+					
+					map = THREE.ImageUtils.loadTexture('img/dada/17.png');
+					geometry = new THREE.PlaneGeometry(399, 500, 4, 4);
+					material = new THREE.MeshBasicMaterial({shading: THREE.FlatShading, color: 0xffffff, map: map, transparent: true, opacity: 0.5});
+					mesh17 = new THREE.Mesh(geometry, material);
+					map.wrapS = map.wrapT = THREE.RepeatWrapping;
+					mesh17.scale.x = mesh17.scale.y = mesh17.scale.z = 0.25;
+					mesh17.position.x = Math.random() * 1000 - 500;
+					mesh17.position.y = Math.random() * 1000 - 500;
+					mesh17.position.z = Math.random() * 1000 - 500;
+					mesh17.rotation.x = Math.random() * 2 * Math.PI;
+					mesh17.rotation.y = Math.random() * 2 * Math.PI;
+					mesh17.rotation.z = Math.random() * 2 * Math.PI;
+					scene.add(mesh17);
+					
+					map = THREE.ImageUtils.loadTexture('img/dada/18.png');
+					geometry = new THREE.PlaneGeometry(496, 500, 4, 4);
+					material = new THREE.MeshBasicMaterial({shading: THREE.FlatShading, color: 0xffffff, map: map, transparent: true, opacity: 0.5});
+					mesh18 = new THREE.Mesh(geometry, material);
+					map.wrapS = map.wrapT = THREE.RepeatWrapping;
+					mesh18.scale.x = mesh18.scale.y = mesh18.scale.z = 0.25;
+					mesh18.position.x = Math.random() * 1000 - 500;
+					mesh18.position.y = Math.random() * 1000 - 500;
+					mesh18.position.z = Math.random() * 1000 - 500;
+					mesh18.rotation.x = Math.random() * 2 * Math.PI;
+					mesh18.rotation.y = Math.random() * 2 * Math.PI;
+					mesh18.rotation.z = Math.random() * 2 * Math.PI;
+					scene.add(mesh18);
+					
+					map = THREE.ImageUtils.loadTexture('img/dada/19.png');
+					geometry = new THREE.PlaneGeometry(351, 500, 4, 4);
+					material = new THREE.MeshBasicMaterial({shading: THREE.FlatShading, color: 0xffffff, map: map, transparent: true, opacity: 0.5});
+					mesh19 = new THREE.Mesh(geometry, material);
+					map.wrapS = map.wrapT = THREE.RepeatWrapping;
+					mesh19.scale.x = mesh19.scale.y = mesh19.scale.z = 0.25;
+					mesh19.position.x = Math.random() * 1000 - 500;
+					mesh19.position.y = Math.random() * 1000 - 500;
+					mesh19.position.z = Math.random() * 1000 - 500;
+					mesh19.rotation.x = Math.random() * 2 * Math.PI;
+					mesh19.rotation.y = Math.random() * 2 * Math.PI;
+					mesh19.rotation.z = Math.random() * 2 * Math.PI;
+					scene.add(mesh19);
+				}
+
+				var ambient = new THREE.AmbientLight( 0xffffff );
+				scene.add( ambient );
+
+				var directionalLight = new THREE.DirectionalLight( 0xffffff );
+				directionalLight.position.set( 0, 0, 1 );
+				scene.add( directionalLight );
+
+				// Texture
+
+				var manager = new THREE.LoadingManager();
+
+				var onProgress = function ( xhr ) {
+					if ( xhr.lengthComputable ) {
+						var percentComplete = xhr.loaded / xhr.total * 100;
+						console.log( Math.round(percentComplete, 2) + '% downloaded' );
+					}
+				};
+
+				var onError = function ( xhr ) {
+				};
+
+				// Model
+
+				var loader = new THREE.OBJLoader( manager );
+				loader.load( 'obj/pipaSQ.obj', function ( object ) {
+					object.traverse( function ( child ) {
+						if ( child instanceof THREE.Mesh ) {
+		                    var  geometry = child.geometry;
+		                    material = child.material;
+		                    mesh = new THREE.Mesh(geometry, material);
+		                    	scene.add(mesh);
+		                    var useWireFrame = true;
+		                    if (useWireFrame) {
+		                    	mesh.traverse(function (child) {
+		                        	if (child instanceof THREE.Mesh) {
+		                                child.material.wireframe = true;
+		                                child.material.opacity = 0.75;
+		                                }
+		                        } );
+		                    }
+						}
+					} );
+				}, onProgress, onError );
+
+				// Renderer
+
+				renderer = new THREE.WebGLRenderer({ alpha: true, preserveDrawingBuffer: true });
+				renderer.autoClearColor = false;
+				renderer.setClearColor( 0x000000, 0 ); 
+				renderer.setPixelRatio( window.devicePixelRatio );
+				renderer.setSize( window.innerWidth, window.innerHeight );
+				container.appendChild( renderer.domElement );
+				
+				document.addEventListener( 'mousemove', onDocumentMouseMove, false );
+
+				//
+
+				window.addEventListener( 'resize', onWindowResize, false );
+			}
+
+			function onWindowResize() {
+				windowHalfX = window.innerWidth / 2;
+				windowHalfY = window.innerHeight / 2;
+
+				camera.aspect = window.innerWidth / window.innerHeight;
+				camera.updateProjectionMatrix();
+
+				renderer.setSize( window.innerWidth, window.innerHeight );
+			}
+
+			function onDocumentMouseMove( event ) {
+				mouseX = ( event.clientX - windowHalfX ) / 2;
+				mouseY = ( event.clientY - windowHalfY ) / 2;
+			}
+
+			function animate() {
+				requestAnimationFrame( animate );
+				render();
+			}
+
+			function render() {
+				requestAnimationFrame( render );
+
+				mesh.rotation.x = mesh.rotation.y = mesh.rotation.z += ( mouseX - mesh.rotation.x ) * .00001;
+				mesh.scale.x = mesh.scale.y = mesh.scale.z = 35;
+				mesh.material.color.setHex(mouseX - mouseY * randomColor);
+
+				if (cameraAngle == desiredAngle) { orbitSpeed = 0; }
+				else {
+				  cameraAngle += orbitSpeed;
+				  camera.position.x = Math.cos(cameraAngle) * orbitRange;
+				  camera.position.y = Math.cos(cameraAngle) * orbitRange;
+				  camera.position.z = Math.sin(cameraAngle) * orbitRange;
+				}
+
+				camera.lookAt( mesh.position );
+				renderer.render( scene, camera );
+			}
+		</script>
+	</body>
+</html>

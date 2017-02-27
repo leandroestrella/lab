@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>whirling</title>
+		<meta charset="utf-8">
+		<link rel="author" href="https://plus.google.com/+LeandroEstrellaPlus">
+		<meta name="description" content="dancing highlander made with threejs playground">
+	
+		<!-- Bootstrap Core CSS -->
+	    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
+	    <link href="css/freelancer.css" rel="stylesheet" type="text/css">
+
+	    <!-- IE8 support for HTML5 elements and media queries -->
+	    <!--[if lt IE 9]>
+	      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+	      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+	    <![endif]-->
+
+	    <!-- threejs playGnd -->
+		<script src="js/three.min.js"></script>
+		<script src="js/Detector.js"></script>
+		<!-- <script src="http://threejs.org/examples/fonts/helvetiker_bold.typeface.js"></script> -->
+		<!-- <script src="http://threejs.org/examples/fonts/helvetiker_regular.typeface.js"></script> -->
+		
+	    <style>
+			body {
+				background-color: black;
+				margin: 0;
+				overflow: hidden;
+			}
+		</style>
+
+		<script src="js/jquery-1.10.2.js"></script>
+	    <script src="js/bootstrap.min.js"></script>
+	    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+	    <script src="js/classie.js"></script>
+	    <script src="js/cbpAnimatedHeader.js"></script>
+	    <script src="js/freelancer.js"></script>
+	</head>
+	<body>
+	        <div class="container-fluid">
+	            <div class="row">
+						<script>
+						/* http://threejsplaygnd.brangerbriz.net/s/?id=599 */
+							if ( ! Detector.webgl ) Detector.addGetWebGLMessage();
+							
+							var camera, scene, renderer;
+							var geometry, material, mesh;
+
+							function setup() {
+
+								var W = window.innerWidth, H = window.innerHeight;
+								renderer = new THREE.WebGLRenderer( { preserveDrawingBuffer: true } );
+								renderer.autoClearColor = false;
+								renderer.setSize( W, H );
+								document.body.appendChild( renderer.domElement );
+
+								camera = new THREE.PerspectiveCamera( 50, W/H, 1, 10000 );
+								camera.position.z = 500;
+
+								scene = new THREE.Scene();
+								
+								var theText = "whirl";
+								var hash = document.location.hash.substr( 1 );
+								if ( hash.length !== 0 ) { theText = hash; }
+								var text3d = new THREE.TextGeometry( theText, {
+									size: 60,
+									height: 20,
+									curveSegments: 5,
+									font: "helvetiker",
+									weight: "bold"
+								});
+								text3d.computeBoundingBox();
+								var centerOffset = -0.5 * ( text3d.boundingBox.max.x - text3d.boundingBox.min.x );
+								var textMaterial = new THREE.MeshBasicMaterial( { color: Math.random()*0xffffff, overdraw: true } );
+								text = new THREE.Mesh( text3d, textMaterial );
+								text.position.x = centerOffset;
+								text.position.y = 0;
+								text.position.z = 50;
+								text.rotation.x = 0;
+								text.rotation.y = Math.PI * 2;
+								parent = new THREE.Object3D();
+								parent.add( text );
+								scene.add( parent );
+								
+								map = THREE.ImageUtils.loadTexture('img/portfolio/dance.png');
+								geometry = new THREE.CircleGeometry(150, 150, 1, 6.283185307179586);
+								material = new THREE.MeshBasicMaterial({shading: THREE.SmoothShading, color: 0xdcdcdc, map: map, side: THREE.DoubleSide, transparent: true, opacity: 1});
+								
+								for ( var i = 0; i < geometry.vertices.length; i ++ ) {
+									var vertices = [];
+									for ( var v = 0; v < geometry.vertices.length; v ++ ) {
+										vertices.push( geometry.vertices[ v ].clone() );
+										if ( v === i ) {
+											vertices[ vertices.length - 1 ].x *= 2;
+											vertices[ vertices.length - 1 ].y *= 2;
+											vertices[ vertices.length - 1 ].z *= 2;
+										}
+									}
+									geometry.morphTargets.push( { name: "target" + i, vertices: vertices } );
+								}
+								
+								mesh = new THREE.Mesh(geometry, material);
+								map.wrapS = map.wrapT = THREE.RepeatWrapping;
+								map.repeat.set( 1.0975433173615183, 1.0975433173615183 );
+								
+								mesh.material.morphTargets = true;
+								
+								scene.add(mesh);
+
+							}
+
+							function draw() {
+
+								requestAnimationFrame( draw );
+								
+								var time = Date.now() * 0.0005;
+								h = ( 360 * ( 1.0 + time ) % 360 ) / 360;
+								mesh.material.color.setHSL(h, 0.5, 0.5 );
+								
+								mesh.position.x = Math.sin( Date.now() * 0.0001 ) * 350;
+								mesh.rotation.y = Math.sin( Date.now() * 0.0005 ) * 50;
+								mesh.rotation.z = Date.now() * 0.0005;
+								
+								for(var v = 0; v < mesh.geometry.vertices.length; v ++ ){
+									mesh.morphTargetInfluences[ v ] = Math.random();
+								}
+								
+								renderer.render( scene, camera );
+
+							}
+
+							setup();
+							draw();
+						</script>
+	            </div>
+	        </div>
+			<nav class="navbar-fixed-bottom">
+				<div class="container-fluid">
+					<div class="navbar-form">
+						<div class="nav navbar-nav navbar-right">
+							<a href="http://leandroestrella.altervista.org/#portfolio"><button type="button" class="btn btn-warning"><span class="glyphicon glyphicon-remove"></span></button></a>
+						</div>
+					</div>
+			    </div>
+			</nav>
+	</body>
+</html>
