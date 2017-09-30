@@ -2,148 +2,206 @@
 <html>
 
 <head>
-    <meta charset="UTF-8">
-    <title>FaceSlap</title>
-    <link href='https://fonts.googleapis.com/css?family=Raleway:900' rel='stylesheet'>
-    <style type="text/css">
-    html,
-    body,
-    #wrapper {
-        height: 100%;
-        width: 100%;
-        margin: 0;
-        padding: 0;
-        border: 0;
-        /*background-color: #f86c5f;*/
-        font-family: 'Raleway', sans-serif;
-        color: #000;
-    }
+  <meta charset="UTF-8">
+  <title>FaceSlap</title>
+  <link href='https://fonts.googleapis.com/css?family=Raleway:900' rel='stylesheet'>
+  <style type="text/css">
+  html,
+  body,
+  #wrapper {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-family: 'Raleway', sans-serif;
+    color: #000;
+  }
 
-    p {
-        font-size: 55px;
-        text-transform: uppercase;
-    }
+  p {
+    font-size: 56px;
+    text-transform: uppercase;
+  }
 
-    #wrapper td {
-        vertical-align: middle;
-        text-align: center;
-    }
+  #countdown {
+    font-style: italic;
+  }
 
-    #slidecaption:hover {
-        -webkit-animation-name: spinner;
-        -webkit-animation-timing-function: linear;
-        -webkit-animation-iteration-count: infinite;
-        -webkit-animation-duration: 2s;
-        animation-name: spinner;
-        animation-timing-function: linear;
-        animation-iteration-count: infinite;
-        animation-duration: 2s;
-        -webkit-transform-style: preserve-3d;
-        -moz-transform-style: preserve-3d;
-        -ms-transform-style: preserve-3d;
-        transform-style: preserve-3d;
-    }
-    /* WebKit and Opera browsers */
+  #countdown, #facebook {
+    font-size: 34px;
+  }
 
-    @-webkit-keyframes spinner {
-        from {
-            -webkit-transform: rotateY(0deg);
-        }
-        to {
-            -webkit-transform: rotateY(-360deg);
-        }
-    }
-    /* all other browsers */
+  #facebook a:link, #facebook a:visited, #countdown a:link, #countdown a:visited {
+    color: black;
+  }
 
-    @keyframes spinner {
-        from {
-            -moz-transform: rotateY(0deg);
-            -ms-transform: rotateY(0deg);
-            transform: rotateY(0deg);
-        }
-        to {
-            -moz-transform: rotateY(-360deg);
-            -ms-transform: rotateY(-360deg);
-            transform: rotateY(-360deg);
-        }
-    }
+  #facebook a:hover, #facebook a:active, #countdown a:hover, #countdown a:active {
+    color: white;
+  }
 
-    body {
-        background: linear-gradient(180deg, #f86c5f, #fcbb1f, #337c9d);
-        background-size: 600% 600%;
+  #countdown a:link, #countdown a:visited {
+    background-color: white;
+    padding: 14px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+  }
 
-        -webkit-animation: colorchange 30s ease-in-out infinite;
-        -moz-animation: colorchange 30s ease-in-out infinite;
-        -o-animation: colorchange 30s ease-in-out infinite;
-        animation: colorchange 30s ease-in-out infinite;
-    }
+  #countdown a:hover, #countdown a:active {
+    background-color: black;
+  }
 
-    @-webkit-keyframes colorchange {
-        0% {
-            background-position: 50% 0%
-        }
-        50% {
-            background-position: 51% 100%
-        }
-        100% {
-            background-position: 50% 0%
-        }
-    }
+  #wrapper td {
+    vertical-align: middle;
+    text-align: center;
+  }
 
-    @-moz-keyframes colorchange {
-        0% {
-            background-position: 50% 0%
-        }
-        50% {
-            background-position: 51% 100%
-        }
-        100% {
-            background-position: 50% 0%
-        }
-    }
+  #slidecaption:hover {
+    -webkit-animation-name: spinner;
+    -webkit-animation-timing-function: linear;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-duration: 2s;
+    animation-name: spinner;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-duration: 2s;
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    -ms-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+  }
 
-    @-o-keyframes colorchange {
-        0% {
-            background-position: 50% 0%
-        }
-        50% {
-            background-position: 51% 100%
-        }
-        100% {
-            background-position: 50% 0%
-        }
+  /* WebKit and Opera browsers */
+  @-webkit-keyframes spinner {
+    from {
+      -webkit-transform: rotateY(0deg);
     }
+    to {
+      -webkit-transform: rotateY(-360deg);
+    }
+  }
 
-    @keyframes colorchange {
-        0% {
-            background-position: 50% 0%
-        }
-        50% {
-            background-position: 51% 100%
-        }
-        100% {
-            background-position: 50% 0%
-        }
+  /* all other browsers */
+  @keyframes spinner {
+    from {
+      -moz-transform: rotateY(0deg);
+      -ms-transform: rotateY(0deg);
+      transform: rotateY(0deg);
     }
-    </style>
+    to {
+      -moz-transform: rotateY(-360deg);
+      -ms-transform: rotateY(-360deg);
+      transform: rotateY(-360deg);
+    }
+  }
+
+  body {
+    background: linear-gradient(180deg, #f86c5f, #fcbb1f, #337c9d);
+    background-size: 600% 600%;
+
+    -webkit-animation: colorchange 30s ease-in-out infinite;
+    -moz-animation: colorchange 30s ease-in-out infinite;
+    -o-animation: colorchange 30s ease-in-out infinite;
+    animation: colorchange 30s ease-in-out infinite;
+  }
+
+  @-webkit-keyframes colorchange {
+    0% {
+      background-position: 50% 0%
+    }
+    50% {
+      background-position: 51% 100%
+    }
+    100% {
+      background-position: 50% 0%
+    }
+  }
+
+  @-moz-keyframes colorchange {
+    0% {
+      background-position: 50% 0%
+    }
+    50% {
+      background-position: 51% 100%
+    }
+    100% {
+      background-position: 50% 0%
+    }
+  }
+
+  @-o-keyframes colorchange {
+    0% {
+      background-position: 50% 0%
+    }
+    50% {
+      background-position: 51% 100%
+    }
+    100% {
+      background-position: 50% 0%
+    }
+  }
+
+  @keyframes colorchange {
+    0% {
+      background-position: 50% 0%
+    }
+    50% {
+      background-position: 51% 100%
+    }
+    100% {
+      background-position: 50% 0%
+    }
+  }
+  </style>
+  <script>
+  // Set the date we're counting down to
+  var countDownDate = new Date("Oct 6, 2017 19:00:00").getTime();
+
+  // Update the count down every 1 second
+  var x = setInterval(function() {
+
+    // Get todays date and time
+    var now = new Date().getTime();
+
+    // Find the distance between now an the count down date
+    var distance = countDownDate - now;
+
+    // Time calculations for days, hours, minutes and seconds
+    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    // Output the result in an element with id="demo"
+    document.getElementById("countdown").innerHTML = "fra " + days + " giorni " + hours + " ore "
+    + minutes + " minuti " + seconds + " secondi";
+
+    // If the count down is over, write some text
+    if (distance < 0) {
+      clearInterval(x);
+      document.getElementById("countdown").innerHTML = "<a href='https://leandroestrella.github.io/faceslap/FaceSlap.apk'>Scarica l'App per Android</a>";
+    }
+  }, 1000);
+  </script>
 </head>
 
 <body>
-    <table id="wrapper">
-        <tr>
-            <td>
-                <p>FaceSlap</p>
-            </td>
-        </tr>
-        <tr>
-            <td><img id="slidecaption" src="faceslap/faceslap.png" /></td>
-        </tr>
-        <tr>
-            <td>
-                <p>Ci vediamo a Roma</p>
-            </td>
-        </tr>
-    </table>
+  <table id="wrapper">
+    <tr>
+      <td>
+        <p>FaceSlap</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img id="slidecaption" src="faceslap/faceslap.png" /></td>
+    </tr>
+    <tr>
+      <td>
+        <p id="facebook">Ci vediamo a Roma per il <a href="https://www.facebook.com/events/1473127162736662/" target="_blank">Tabù 2017</a></p>
+        <p id="countdown"></p>
+      </td>
+    </tr>
+  </table>
 </body>
 
 </html>
