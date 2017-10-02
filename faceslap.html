@@ -23,6 +23,16 @@
     text-transform: uppercase;
   }
 
+  #title a:link, #title a:visited {
+    color: black;
+    text-decoration: none;
+  }
+
+  #title a:hover, #title a:active {
+    color: white;
+    text-decoration: none;
+  }
+
   #countdown {
     font-style: italic;
   }
@@ -179,7 +189,7 @@
     // If the count down is over, write some text
     if (distance < 0) {
       clearInterval(x);
-      document.getElementById("countdown").innerHTML = "<a href='https://leandroestrella.github.io/faceslap/FaceSlap.apk'>Scarica l'App per Android</a>";
+      document.getElementById("countdown").innerHTML = "<a href='https://drive.google.com/uc?export=download&id=0B2Onr6DzNbRCcFVBdGNBTVctTzA'>Scarica l'App per Android</a>";
     }
   }, 1000);
   </script>
@@ -189,7 +199,7 @@
   <table id="wrapper">
     <tr>
       <td>
-        <p>FaceSlap</p>
+        <p id="title"><a href="https://www.instagram.com/faceslapapp/" target="_blank">FaceSlap</a></p>
       </td>
     </tr>
     <tr>
