@@ -338,13 +338,13 @@ textarea {
 }
 
 a {
-    color: #18bc9c;
+    color: #000000;
     text-decoration: none
 }
 
 a:hover,
 a:focus {
-    color: #18bc9c;
+    color: #ffffff;
     text-decoration: underline
 }
 
@@ -4721,7 +4721,7 @@ select[multiple].input-group-sm>.input-group-btn>.btn {
 }
 
 .navbar-default {
-    background-color: #2c3e50;
+    background-color: #000000;
     border-color: transparent
 }
 
@@ -4731,7 +4731,7 @@ select[multiple].input-group-sm>.input-group-btn>.btn {
 
 .navbar-default .navbar-brand:hover,
 .navbar-default .navbar-brand:focus {
-    color: #18bc9c;
+    color: #ffffff;
     background-color: transparent
 }
 
@@ -4740,7 +4740,7 @@ select[multiple].input-group-sm>.input-group-btn>.btn {
 }
 
 .navbar-default .navbar-nav>li>a {
-    color: #ffffff
+    color: #000000
 }
 
 .navbar-default .navbar-nav>li>a:hover,
