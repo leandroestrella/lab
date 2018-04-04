@@ -16,7 +16,7 @@ a:focus,
 a:active,
 a.active {
     outline: 0;
-    color: white;
+    color: #000000;
 }
 
 h1,
