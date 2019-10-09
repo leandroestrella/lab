@@ -65,7 +65,7 @@ function newIndexRandomNumber() {
     oldIndexNumber = NewIndexNumber;
     NewIndexNumber = Math.floor(Math.random() * maxNumber);
     if (NewIndexNumber == oldIndexNumber) {
-        newIndexRandomNumber();
+        return newIndexRandomNumber();
     } else {
         return NewIndexNumber;
     }
@@ -79,7 +79,7 @@ function newStartRandomNumber() {
     oldStartNumber = NewStartNumber;
     NewStartNumber = Math.floor(Math.random() * (player.getDuration() - 0)) + 0;
     if (NewStartNumber == oldStartNumber) {
-        newStartRandomNumber();
+        return newStartRandomNumber();
     } else {
         return NewStartNumber;
     }
@@ -93,7 +93,7 @@ function newEndRandomNumber() {
     oldEndNumber = NewEndNumber;
     NewEndNumber = Math.floor(Math.random() * (player.getDuration() - newStartRandomNumber())) + newStartRandomNumber();
     if (NewEndNumber == oldEndNumber) {
-        newEndRandomNumber();
+        return newEndRandomNumber();
     } else {
         return NewEndNumber;
     }
