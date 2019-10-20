@@ -65,8 +65,7 @@ function newIndexRandomNumber() {
     oldIndexNumber = NewIndexNumber;
     NewIndexNumber = Math.floor(Math.random() * maxNumber);
     if (NewIndexNumber == oldIndexNumber) {
-        //return 
-        newIndexRandomNumber();
+        return newIndexRandomNumber();
     } else {
         return NewIndexNumber;
     }
@@ -80,8 +79,7 @@ function newStartRandomNumber() {
     oldStartNumber = NewStartNumber;
     NewStartNumber = Math.floor(Math.random() * (player.getDuration() - 0)) + 0;
     if (NewStartNumber == oldStartNumber) {
-        //return
-        newStartRandomNumber();
+        return newStartRandomNumber();
     } else {
         return NewStartNumber;
     }
@@ -95,15 +93,14 @@ function newEndRandomNumber() {
     oldEndNumber = NewEndNumber;
     NewEndNumber = Math.floor(Math.random() * (player.getDuration() - newStartRandomNumber())) + newStartRandomNumber();
     if (NewEndNumber == oldEndNumber) {
-        //return
-        newEndRandomNumber();
+        return newEndRandomNumber();
     } else {
         return NewEndNumber;
     }
 }
 
 // pick random speed 0.25 (no sound), 0.5, 1 (normal), 1.5, and 2.
-var array = [0.5, 1.5, 2];
+var array = [0.25, 0.5, 1.5, 2];
 
 function randomSpeed() {
     function shuffle(a) {
