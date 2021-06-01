@@ -1,9 +1,11 @@
 <!DOCTYPE HTML>
 <html>
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
 	<title>Suprenetist Composition</title>
 	<meta charset="utf-8">
+	<link rel="author" href="https://leandroestrella.com">
 	<meta name="description" content="suprenetist composition">
 	<!-- jQuery library (served from Google) -->
 	<script type="text/javascript" src="js/jquery.min.js"></script>
@@ -17,11 +19,13 @@
 			margin: 0;
 			padding: 0;
 		}
+
 		div.directorySlider {
 			opacity: 0.1;
 		}
 	</style>
 </head>
+
 <body>
 	<div style="container">
 		<div style="content">
@@ -29,21 +33,22 @@
 			<!-- For this to work, the files need to be labeled with numbers (tn_1.jpg, tn_2.jpg, etc); I have successfully used numbers and letters (tn_1a.jpg, tn_2b.jpg, etc);  however, you can't use the same numbers (NOT tn_1a.jpg, tn_1b.jpg) -->
 			<!-- These will scroll in reverse order for some reason, but Justin promised he would look into it -->
 			<script>
-				$(document).ready(function(){
+				$(document).ready(function () {
 					$('.directorySlider').directorySlider({ //Use the class name from your <div>
-					animation: 'fade', //Or 'uncover', shows the transition between each image.  Fade will fade out the one on top, Uncover will slide the one on top to the left
-					filebase: 'Image', //String which prepends the slides you wish to display
-					directory: 'img/square/', //Location of the slides.  Make sure you include the extra forward slash (/) at the end, otherwise it won't work
-					extension: 'jpg', //File extension (can use any image format)
-					numslides: 55, //This is where it will count down sequentially from (i.e. Start at slide 7, then move to slide 6, then 5, etc).  If any slide numbers are missing, you get a broken image link
-					//This is the number of slides the jQuery will look for, starting at the highest number and counting down by one each time
-					//Also, having a numslides of 9, a total of nine slides, but the numbers going from 7-15 will result in less-than-positive results: there will be a broken image link for 15, 14, 13, 12, 11, and 10, then it will display 9, 8, and 7 then it will quickly loop broken images from six to zero
-					speed: 500, //This is the time it takes to fade from one image to the next (in milliseconds [1 second = 1000])
-					timeout: 100, //This is the time each image displays for before changing into the next image (in milliseconds [1 second = 1000])
+						animation: 'fade', //Or 'uncover', shows the transition between each image.  Fade will fade out the one on top, Uncover will slide the one on top to the left
+						filebase: 'Image', //String which prepends the slides you wish to display
+						directory: 'img/square/', //Location of the slides.  Make sure you include the extra forward slash (/) at the end, otherwise it won't work
+						extension: 'jpg', //File extension (can use any image format)
+						numslides: 55, //This is where it will count down sequentially from (i.e. Start at slide 7, then move to slide 6, then 5, etc).  If any slide numbers are missing, you get a broken image link
+						//This is the number of slides the jQuery will look for, starting at the highest number and counting down by one each time
+						//Also, having a numslides of 9, a total of nine slides, but the numbers going from 7-15 will result in less-than-positive results: there will be a broken image link for 15, 14, 13, 12, 11, and 10, then it will display 9, 8, and 7 then it will quickly loop broken images from six to zero
+						speed: 500, //This is the time it takes to fade from one image to the next (in milliseconds [1 second = 1000])
+						timeout: 100, //This is the time each image displays for before changing into the next image (in milliseconds [1 second = 1000])
 					});
 				});
 			</script>
 		</div>
 	</div>
 </body>
+
 </html>
