@@ -541,4 +541,12 @@ footer img {
   .content span img {
     width: 100%;
   }
+
+  header {
+    z-index: -2;
+  }
+
+  footer {
+    z-index: -1;
+  }
 }
