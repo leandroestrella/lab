@@ -1,5 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
+	<head>
+		<title>Irrepresent by Leandro Estrella [AD]</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+		<link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <style>
+      body {
+          font-family: Monospace;
+          background-color: #000;
+          color: #000;
+          margin: 0px;
+          background-image: url("img/bookB.png");
+          background-color: transparent;
+          background-repeat: no-repeat;
+          background-position: left top;
+          background-size: 1155px 700px;
+          overflow: auto;
+        }
+        #before {
+          color: #000;
+          position: absolute;
+          top: 630px;
+          left: 65px;
+          width: 300px;
+          text-align: left;
+          z-index: 100;
+          display: block;
+        }
+        #next {
+          color: #000;
+          position: absolute;
+          top: 630px;
+          left: 1075px;
+          width: 300px;
+          text-align: left;
+          z-index: 100;
+          display: block;
+        }
+        p {
+          text-align: right;
+        }
+        a {
+          color: #000;
+          font-weight: bold;
+          text-decoration: underline;
+          cursor: pointer;
+          text-decoration: none;
+        }
+        #canvas {
+          width: 1155px;
+          height: 700px;
+          margin-top: 0px;
+          padding: 0px;
+          position: absolute; /* fixed or static */
+          top: 0px;
+          left: 0px;
+        }
+    </style>
+    <!-- PostHog analytics — cookieless (LNDR-127). No cookies and no
+         local/session storage are written, so no consent banner is needed;
+         visitor identity is a server-side rotating hash. Never call
+         identify() or alias() here. Config is shared across every
+         leandroestrella.com property — keep it in sync (see LNDR-125). -->
+    <script>
+        !function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.crossOrigin="anonymous",p.async=!0,p.src=s.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],Object.defineProperty(u,"toString",{configurable:!0,enumerable:!0,writable:!0,value:function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e}}),Object.defineProperty(u.people,"toString",{configurable:!0,enumerable:!0,writable:!0,value:function(){return u.toString(1)+".people (stub)"}}),o="init capture register register_once register_for_session unregister unregister_for_session getFeatureFlag getFeatureFlagResult isFeatureEnabled reloadFeatureFlags updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures on onFeatureFlags onSessionId getSurveys getActiveMatchingSurveys renderSurvey canRenderSurvey getNextSurveyStep identify setPersonProperties group resetGroups setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags reset get_distinct_id getGroups get_session_id get_session_replay_url alias set_config startSessionRecording stopSessionRecording sessionRecordingStarted captureException loadToolbar get_property getSessionProperty createPersonProfile opt_in_capturing opt_out_capturing has_opted_in_capturing has_opted_out_capturing clear_opt_in_out_capturing debug".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
+        posthog.init('phc_u2oIVF0W5TS7kaHyVTZPYcCqiMDHlAeUziTN0uwAfX9', {
+            api_host: 'https://eu.i.posthog.com',
+            defaults: '2026-08-30',
+            cookieless_mode: 'always',
+            person_profiles: 'never',
+        })
+    </script>
+	</head>
+	<body>
+      	<div id="canvas">
+      <script src="js/three.min.js"></script>
+      <script src="js/OBJLoader.js"></script>
+      <!-- <script src="js/AsciiEffect.js"></script> -->
+      <script>
+        var canvas_width = 1155;
+        var canvas_height = 700;
 
 <head>
   <title>Irrepresent by Leandro Estrella [AD]</title>
